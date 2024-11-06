@@ -1,5 +1,7 @@
 package com.ecommerce.sb_ecom.service;
 
+import com.ecommerce.sb_ecom.exceptions.ApiException;
+import com.ecommerce.sb_ecom.exceptions.ResourceNotFoundException;
 import com.ecommerce.sb_ecom.model.Category;
 import com.ecommerce.sb_ecom.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,30 +10,33 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
-    private Long nexId = 1L;
-
     @Autowired
     private CategoryRepository categoryRepository;
 
-
     @Override
     public List<Category> getAllCategories() {
-        return categoryRepository.findAll();
+        List<Category> categories = categoryRepository.findAll();
+        if (categories.isEmpty()) {
+            throw new ApiException("No category created till now.");
+        }
+        return categories;
     };
 
     @Override
     public void createCategory(Category category) {
-        category.setCategoryId(nexId++);
+        Category savedCategory = categoryRepository.findByCategoryName(category.getCategoryName());
+        if (savedCategory != null) {
+            throw new ApiException("category with the name " + category.getCategoryName() + " already exists");
+        }
         categoryRepository.save(category);
     };
 
     @Override
     public String deleteCategory(Long categoryId) {
-        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category", "id", categoryId));
         categoryRepository.delete(category);
         return "Category with categoryId: " + categoryId + " deleted";
     }
