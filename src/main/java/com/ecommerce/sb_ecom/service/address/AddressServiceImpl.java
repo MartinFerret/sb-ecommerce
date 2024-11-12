@@ -1,6 +1,7 @@
 package com.ecommerce.sb_ecom.service.address;
 
 import com.ecommerce.sb_ecom.dto.AddressDTO;
+import com.ecommerce.sb_ecom.exceptions.ResourceNotFoundException;
 import com.ecommerce.sb_ecom.model.Address;
 import com.ecommerce.sb_ecom.model.User;
 import com.ecommerce.sb_ecom.repository.AddressRepository;
@@ -8,7 +9,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class AddressServiceImpl implements AddressService {
@@ -37,5 +37,11 @@ public class AddressServiceImpl implements AddressService {
     public List<AddressDTO> getAddresses() {
         List<Address> addresses = addressRepository.findAll();
         return addresses.stream().map(address -> modelMapper.map(address, AddressDTO.class)).toList();
+    }
+
+    @Override
+    public AddressDTO getAddressByid(Long addressId) {
+        Address address = addressRepository.findById(addressId).orElseThrow(() -> new ResourceNotFoundException("Address", "id", addressId));
+        return modelMapper.map(address, AddressDTO.class);
     }
 }
