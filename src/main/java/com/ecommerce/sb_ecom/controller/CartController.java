@@ -3,7 +3,7 @@ package com.ecommerce.sb_ecom.controller;
 import com.ecommerce.sb_ecom.dto.CartDTO;
 import com.ecommerce.sb_ecom.model.Cart;
 import com.ecommerce.sb_ecom.repository.CartRepository;
-import com.ecommerce.sb_ecom.service.CartService;
+import com.ecommerce.sb_ecom.service.cart.CartService;
 import com.ecommerce.sb_ecom.utils.AuthUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

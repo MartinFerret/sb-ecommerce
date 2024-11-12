@@ -1,4 +1,4 @@
-package com.ecommerce.sb_ecom.service;
+package com.ecommerce.sb_ecom.service.cart;
 
 import com.ecommerce.sb_ecom.dto.CartDTO;
 import jakarta.transaction.Transactional;

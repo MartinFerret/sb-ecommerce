@@ -1,4 +1,4 @@
-package com.ecommerce.sb_ecom.service;
+package com.ecommerce.sb_ecom.service.file;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

@@ -1,4 +1,4 @@
-package com.ecommerce.sb_ecom.service;
+package com.ecommerce.sb_ecom.service.category;
 
 import com.ecommerce.sb_ecom.dto.CategoryDTO;
 import com.ecommerce.sb_ecom.dto.CategoryResponse;

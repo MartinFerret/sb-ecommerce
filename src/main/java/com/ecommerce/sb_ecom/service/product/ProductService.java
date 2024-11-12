@@ -1,4 +1,4 @@
-package com.ecommerce.sb_ecom.service;
+package com.ecommerce.sb_ecom.service.product;
 
 import com.ecommerce.sb_ecom.dto.ProductDTO;
 import com.ecommerce.sb_ecom.dto.ProductResponse;

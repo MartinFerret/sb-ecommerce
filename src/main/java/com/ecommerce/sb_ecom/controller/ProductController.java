@@ -3,7 +3,7 @@ package com.ecommerce.sb_ecom.controller;
 import com.ecommerce.sb_ecom.config.AppConstant;
 import com.ecommerce.sb_ecom.dto.ProductDTO;
 import com.ecommerce.sb_ecom.dto.ProductResponse;
-import com.ecommerce.sb_ecom.service.ProductService;
+import com.ecommerce.sb_ecom.service.product.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

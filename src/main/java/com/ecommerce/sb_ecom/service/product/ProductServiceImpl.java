@@ -1,4 +1,4 @@
-package com.ecommerce.sb_ecom.service;
+package com.ecommerce.sb_ecom.service.product;
 
 import com.ecommerce.sb_ecom.dto.CartDTO;
 import com.ecommerce.sb_ecom.dto.ProductDTO;
@@ -11,6 +11,8 @@ import com.ecommerce.sb_ecom.model.Product;
 import com.ecommerce.sb_ecom.repository.CartRepository;
 import com.ecommerce.sb_ecom.repository.CategoryRepository;
 import com.ecommerce.sb_ecom.repository.ProductRepository;
+import com.ecommerce.sb_ecom.service.cart.CartService;
+import com.ecommerce.sb_ecom.service.file.FileService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
