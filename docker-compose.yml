@@ -1,0 +1,19 @@
+version: "3"
+services:
+
+  db:
+    image: mysql
+    container_name: db_sbecom
+    restart: always
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    networks:
+      - dev
+
+networks:
+  dev:
+
+volumes:
+  db-data:
